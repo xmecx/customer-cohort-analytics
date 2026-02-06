@@ -45,8 +45,8 @@ plt.title("Розподіл доходу на клієнта (CLV)")
 plt.xlabel("Total revenue")
 plt.ylabel("Customers")
 plt.tight_layout()
-plt.show()
 plt.savefig("images/total_revenue.png", dpi=300)
+plt.show()
 
 ## Додаємо кумулятивний дохід
 customers_full = customers_full.sort_values(
@@ -77,8 +77,8 @@ customers_full["customer_segment"] = customers_full["orders_count"].apply(custom
 customers_full["customer_segment"].value_counts().plot(kind="bar")
 plt.title("Customers by segment")
 plt.tight_layout()
-plt.show()
 plt.savefig("images/customer_segment.png", dpi=300)
+plt.show()
 
 ## Pareto
 customers_full = customers_full.sort_values(
@@ -102,9 +102,8 @@ plt.title("Pareto analysis (80% доходу)")
 plt.xlabel("Клієнти, відсортовані за доходом")
 plt.ylabel("Кумулятивна частка доходу")
 plt.tight_layout()
-plt.show()
 plt.savefig("images/pareto.png", dpi=300)
-
+plt.show()
 
 ## Підготовка дат
 orders["order_date"] = pd.to_datetime(orders["order_date"])
@@ -135,8 +134,8 @@ customers_full["churn_status"] = customers_full["last_order_date"].apply(
 customers_full["churn_status"].value_counts().plot(kind="bar")
 plt.title("Churn vs Active customers")
 plt.tight_layout()
-plt.show()
 plt.savefig("images/churn.png", dpi=300)
+plt.show()
 
 ## Cohort month
 first_order = (
@@ -189,8 +188,8 @@ plt.xlabel("Місяців з першої покупки")
 plt.ylabel("Когорта (місяць)")
 plt.title("Cohort Retention Analysis")
 plt.tight_layout()
-plt.show()
 plt.savefig("images/retention_cohort.png", dpi=300)
+plt.show()
 
 ## Дохід по місяцям
 orders["order_month"] = orders["order_date"].dt.to_period("M")
@@ -212,5 +211,5 @@ plt.title("Дохід у часі")
 plt.xlabel("Місяць")
 plt.ylabel("Дохід")
 plt.tight_layout()
-plt.show()
 plt.savefig("images/revenue_per_month.png", dpi=300)
+plt.show()
