@@ -1,22 +1,20 @@
 #  Customer Cohort & Retention Analytics
 
-## Опис проєкту
-Цей проєкт присвячений аналізу поведінки клієнтів, їхньої довгострокової цінності (CLV),
-утримання (retention), відтоку (churn) та структури доходу бізнесу.
+## Project Description
+This project focuses on analyzing customer behavior, Customer Lifetime Value (CLV), retention, churn, and 
+overall revenue structure.
 
-Мета — показати, як за допомогою Python та SQL можна отримувати
-бізнес-інсайти, що допомагають приймати рішення щодо retention-стратегій,
-VIP-клієнтів та зростання доходу.
-
+The goal is to demonstrate how Python and SQL can be used to generate business insights that support 
+retention strategies, VIP customer identification, and revenue growth decisions.
 ---
 
-##  Дані
-Використовуються CSV-файли:
+##  Data
+The project CSV files:
 
 - `customers.csv`
   - `customer_id`
-  - дата реєстрації
-  - демографічні ознаки (за наявності)
+  - registration date
+  - demographic attributes (if available)
 
 - `orders.csv`
   - `order_id`
@@ -24,67 +22,66 @@ VIP-клієнтів та зростання доходу.
   - `order_date`
   - `amount`
 
-Дані містять клієнтів як з замовленнями, так і без них.
+The dataset includes both customers with and without orders.
 
 
-##  Основні метрики
-У проєкті розраховано:
+##  Key Metrics
+The following metrics were calculated:
 
-- кількість замовлень на клієнта
-- загальний дохід на клієнта (CLV)
-- середній чек
-- частка клієнтів у загальному доході (Pareto 80/20)
-- churn-статус клієнтів
-- retention по когортам
-- дохід у часі
+- number of orders per customer
+- total revenue per customer (CLV)
+- average order value
+- revenue share by customer (Pareto 80/20)
+- customer churn status
+- cohort-based retention
+- revenue over time
 
 ###  CLV (Customer Lifetime Value)
-Розраховано:
-- кількість замовлень
-- сумарний дохід
-- середній чек по кожному клієнту
+Calculated:
+- number of orders
+- total revenue
+- average order value per customer
 
 
-###  Поведінкова сегментація
-Клієнти поділені на сегменти:
-- `inactive` — 0 замовлень
-- `one_time` — 1 замовлення
-- `repeat` — 2+ замовлення
+###  Behavioral Segmentation
+Customers were segmented into:
+- `inactive` — 0 orders
+- `one_time` — 1 order
+- `repeat` — 2+ orders
+
+###  Pareto (VIP Analysis)
+Customers were ranked by revenue to identify:
+- VIP customers (top 20%)
+- their contribution to total revenue
 
 
-###  Pareto (VIP-аналіз)
-Клієнтів відсортовано за доходом та визначено:
-- VIP-клієнтів (топ 20%)
-- їхню частку у загальному доході
-
-
-###  Churn-аналіз
-Churn визначається на основі дати останньої покупки:
-- `active` — клієнт купував нещодавно
-- `churned` — клієнт неактивний понад пороговий період
+###  Churn Analysis
+Churn was determined based on the date of the last purchase:
+- `active` — customer purchased recently
+- `churned` — customer inactive beyond a defined threshold period
 
 
 ###  Cohort Retention
-Побудовано когортний аналіз за місяцем першої покупки:
-- retention по місяцях
-- візуалізація у вигляді heatmap
+Cohort analysis was built based on the month of first purchase:
+- monthly retention rates
+- heatmap visualization
 
 
 ###  Revenue over Time
-Проаналізовано:
-- місячний дохід
-- динаміку revenue у часі
+Analyzed:
+- monthly revenue
+- revenue trends over time
 
 
-##  Інструменти
+##  Tools
 - Python
 - pandas
 - matplotlib
 - SQL (aggregation, joins, window functions)
 
-##  Результат
-Проєкт демонструє:
-- роботу з кількома таблицями
-- end-to-end аналітичний пайплайн
-- бізнес-орієнтоване мислення аналітика
-- поєднання Python та SQL для аналізу даних
+##  Result
+This project demonstrates:
+- working with multiple related tables
+- an end-to-end analytical pipeline
+- business-oriented analytical thinking
+- integration of Python and SQL for data analysis
